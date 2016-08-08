@@ -49,6 +49,9 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //设置手势
+    self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizerAction:)];
+    [self.view addGestureRecognizer:self.panGestureRecognizer];
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveMessage) name:@"btnclick" object:nil];
     self.personview = [[[NSBundle mainBundle]loadNibNamed:@"PersonView" owner:nil options:nil]lastObject];
     [self.view addSubview:self.personview];
@@ -244,4 +247,70 @@
     [_collectionView reloadData];
     _collectionView.contentSize = CGSizeMake(0, ((_selectedPhotos.count + 2) / 3 ) * (_margin + _itemWH));
 }
+-(void)panGestureRecognizerAction:(UIPanGestureRecognizer*)panGestureRecognizer{
+    if (panGestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"滑动开始");
+        //存放滑动开始的位置
+        self.panBeginPoint = [panGestureRecognizer locationInView:[UIApplication sharedApplication].keyWindow];
+        //插入图片
+        [self insertLastViewFromSuperView:self.view.superview];
+        
+    }else if(panGestureRecognizer.state == UIGestureRecognizerStateEnded){
+        NSLog(@"滑动结束");
+        //存放数据
+        self.panEndPoint = [panGestureRecognizer locationInView:[UIApplication sharedApplication].keyWindow];
+        
+        if ((-_panEndPoint.x + _panBeginPoint.x) > 50) {
+            [UIView animateWithDuration:0.3 animations:^{
+                //动画从视图的当前位置移动到目的位置
+                [self moveViewWithLength:screenWidth];
+            } completion:^(BOOL finished) {
+                [self removeLastViewFromSuperView];
+                [self moveViewWithLength:0];
+                //                [self popViewControllerAnimated:NO];
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"changeItem" object:self userInfo:@{@"index": @(self.tabBarController.selectedIndex)}];
+            }];
+            
+            
+        }else{
+            [UIView animateWithDuration:0.3 animations:^{
+                [self moveViewWithLength:0];
+            }];
+        }
+    }else{
+        //添加移动效果
+        CGFloat panLength = (-[panGestureRecognizer locationInView:[UIApplication sharedApplication].keyWindow].x + _panBeginPoint.x);
+        if (panLength > 0) {
+            [self moveViewWithLength:panLength];
+        }
+    }
+    
+}
+- (void)insertLastViewFromSuperView:(UIView *)superView{
+    //插入上一级视图背景
+    if (_backView == nil) {
+        _backView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _backView.image = [_backImgs lastObject];
+    }
+    [self.view.superview insertSubview:_backView belowSubview:self.view];
+}
+/**
+ *  移动视图界面
+ *
+ *  @param lenght 移动的长度
+ */
+- (void)moveViewWithLength:(CGFloat)lenght{
+    
+    //图片位置设置
+    self.view.frame = CGRectMake(-lenght, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+    
+}
+/**
+ *  移除上一级图片
+ */
+- (void)removeLastViewFromSuperView{
+    [_backView removeFromSuperview];
+    _backView = nil;
+}
+
 @end
