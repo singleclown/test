@@ -20,6 +20,8 @@
 		448AEA191D581A47009B5F14 /* LWInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448AEA131D581A47009B5F14 /* LWInfoViewController.m */; };
 		448AEA1A1D581A47009B5F14 /* LWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448AEA151D581A47009B5F14 /* LWViewController.m */; };
 		448AEA1B1D581A47009B5F14 /* LxGridViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 448AEA171D581A47009B5F14 /* LxGridViewFlowLayout.m */; };
+		448DFBB81D587A29007390AD /* LWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 448DFBB41D587A29007390AD /* LWTableViewCell.m */; };
+		448DFBB91D587A29007390AD /* LWTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 448DFBB61D587A29007390AD /* LWTestCell.m */; };
 		44EFBB461D54C3E0002D8772 /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EFBB341D54C3E0002D8772 /* TZAssetCell.m */; };
 		44EFBB471D54C3E0002D8772 /* TZAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EFBB361D54C3E0002D8772 /* TZAssetModel.m */; };
 		44EFBB481D54C3E0002D8772 /* TZImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EFBB381D54C3E0002D8772 /* TZImageManager.m */; };
@@ -77,6 +79,10 @@
 		448AEA151D581A47009B5F14 /* LWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWViewController.m; sourceTree = "<group>"; };
 		448AEA161D581A47009B5F14 /* LxGridViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxGridViewFlowLayout.h; sourceTree = "<group>"; };
 		448AEA171D581A47009B5F14 /* LxGridViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxGridViewFlowLayout.m; sourceTree = "<group>"; };
+		448DFBB41D587A29007390AD /* LWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTableViewCell.m; sourceTree = "<group>"; };
+		448DFBB51D587A29007390AD /* LWTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTestCell.h; sourceTree = "<group>"; };
+		448DFBB61D587A29007390AD /* LWTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTestCell.m; sourceTree = "<group>"; };
+		448DFBB71D587A29007390AD /* LWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWTableViewCell.h; sourceTree = "<group>"; };
 		44EFBB331D54C3E0002D8772 /* TZAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetCell.h; sourceTree = "<group>"; };
 		44EFBB341D54C3E0002D8772 /* TZAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetCell.m; sourceTree = "<group>"; };
 		44EFBB351D54C3E0002D8772 /* TZAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetModel.h; sourceTree = "<group>"; };
@@ -191,6 +197,10 @@
 		4433E3761D5480730060061B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				448DFBB41D587A29007390AD /* LWTableViewCell.m */,
+				448DFBB51D587A29007390AD /* LWTestCell.h */,
+				448DFBB61D587A29007390AD /* LWTestCell.m */,
+				448DFBB71D587A29007390AD /* LWTableViewCell.h */,
 				44EFBB501D54C50D002D8772 /* TZTestCell.h */,
 				44EFBB511D54C50D002D8772 /* TZTestCell.m */,
 				4433E3811D54809A0060061B /* PersonView.h */,
@@ -386,6 +396,7 @@
 			files = (
 				4433E33C1D5471E30060061B /* AppDelegate.m in Sources */,
 				44EFBB521D54C50D002D8772 /* TZTestCell.m in Sources */,
+				448DFBB91D587A29007390AD /* LWTestCell.m in Sources */,
 				44EFBB4D1D54C3E0002D8772 /* TZPhotoPreviewController.m in Sources */,
 				4433E3391D5471E30060061B /* main.m in Sources */,
 				44EFBB481D54C3E0002D8772 /* TZImageManager.m in Sources */,
@@ -395,6 +406,7 @@
 				44EFBB4B1D54C3E0002D8772 /* TZPhotoPickerController.m in Sources */,
 				448AEA1A1D581A47009B5F14 /* LWViewController.m in Sources */,
 				44EFBB471D54C3E0002D8772 /* TZAssetModel.m in Sources */,
+				448DFBB81D587A29007390AD /* LWTableViewCell.m in Sources */,
 				44EFBB461D54C3E0002D8772 /* TZAssetCell.m in Sources */,
 				44EFBB4F1D54C3E0002D8772 /* UIView+Layout.m in Sources */,
 				448AEA191D581A47009B5F14 /* LWInfoViewController.m in Sources */,
